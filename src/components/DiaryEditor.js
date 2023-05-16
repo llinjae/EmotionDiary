@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { DiaryDispatchContext } from './../App.js';
+import { getStringDate } from '../util/date.js';
 
 import MyHeader from './MyHeader';
 import MyButton from './MyButton';
@@ -33,10 +34,6 @@ const emotionList = [
     emotion_descript: '끔찍함',
   },
 ];
-
-const getStringDate = (date) => {
-  return date.toISOString().slice(0, 10);
-};
 
 const DiaryEditor = ({ isEdit, originData }) => {
   const contentRef = useRef();
@@ -74,7 +71,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
 
   useEffect(() => {
     if (isEdit) {
-      setDate(getStringDate(new Date(parseInt(originData))));
+      setDate(getStringDate(new Date(parseInt(originData.date))));
       setEmotion(originData.emotion);
       setContent(originData.content);
     }
