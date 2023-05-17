@@ -80,7 +80,7 @@ function App() {
       type: 'EDIT',
       data: {
         id: targetId,
-        daate: new Date(date).getTime(),
+        date: new Date(date).getTime(),
         content,
         emotion,
       },
